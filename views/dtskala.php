@@ -1,0 +1,18 @@
+<?php
+include '/laragon/www/Prak_SI/config.php';
+
+$sql = "SELECT * FROM skala";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table border='1'><tr><th>ID Skala</th><th>Value</th><th>Keterangan</th></tr>";
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["id_skala"]."</td><td>".$row["value"]."</td><td>".$row["keterangan"]."</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
